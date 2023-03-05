@@ -1,15 +1,17 @@
-package fr.istic.taa.jaxrs.dao.generic;
+package fr.istic.taa.jaxrs.dao;
+
+import fr.istic.taa.jaxrs.domain.User;
 
 import java.io.Serializable;
 import java.util.List;
 
-public interface IGenericDao<K, T extends Serializable> {
+public interface IGenericDao<K, T> {
  
    T findOne(final K id);
  
    List<T> findAll();
   
-   void save(final T entity);
+   T save(final T entity);
  
    T update(final T entity);
  

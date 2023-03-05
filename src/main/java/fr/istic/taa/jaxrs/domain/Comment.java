@@ -1,0 +1,69 @@
+package fr.istic.taa.jaxrs.domain;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+public class Comment {
+    private String text;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+    @ManyToOne
+    private User user;
+    @ManyToOne
+    private Ticket ticket;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", date=" + date +
+                ", user=" + user +
+                '}';
+    }
+}

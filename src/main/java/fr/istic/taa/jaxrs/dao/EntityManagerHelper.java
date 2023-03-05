@@ -1,4 +1,4 @@
-package fr.istic.taa.jaxrs.dao.generic;
+package fr.istic.taa.jaxrs.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,7 +10,7 @@ public class EntityManagerHelper {
 	private static final ThreadLocal<EntityManager> threadLocal;
 
 	static {
-		emf = Persistence.createEntityManagerFactory("dev");
+		emf = Persistence.createEntityManagerFactory("mysql");
 		threadLocal = new ThreadLocal<EntityManager>();
 	}
 
