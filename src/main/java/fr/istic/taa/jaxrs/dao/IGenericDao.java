@@ -1,8 +1,5 @@
 package fr.istic.taa.jaxrs.dao;
 
-import fr.istic.taa.jaxrs.domain.User;
-
-import java.io.Serializable;
 import java.util.List;
 
 public interface IGenericDao<K, T> {
@@ -11,7 +8,7 @@ public interface IGenericDao<K, T> {
  
    List<T> findAll();
   
-   T save(final T entity);
+   void save(final T entity);
  
    T update(final T entity);
  

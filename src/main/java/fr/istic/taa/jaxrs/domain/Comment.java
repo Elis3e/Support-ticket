@@ -5,6 +5,7 @@ import java.util.Date;
 
 @Entity
 public class Comment {
+
     private String text;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -15,6 +16,15 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Comment(String text, User user, Ticket ticket) {
+        this.text = text;
+        this.date = new Date();
+        this.user = user;
+        this.ticket = ticket;
+    }
+    public Comment() {
+    }
 
     // getters and setters
     public Long getId() {

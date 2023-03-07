@@ -1,14 +1,11 @@
 package fr.istic.taa.jaxrs.dao;
 
-import fr.istic.taa.jaxrs.domain.User;
-
-import java.io.Serializable;
+import jpa.EntityManagerHelper;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public abstract class AbstractJpaDao<K extends Serializable, T> implements IGenericDao<K, T> {
+public abstract class AbstractJpaDao<K, T> implements IGenericDao<K, T> {
 
 	private Class<T> clazz;
 
@@ -30,12 +27,11 @@ public abstract class AbstractJpaDao<K extends Serializable, T> implements IGene
 		return entityManager.createQuery("select e from " + clazz.getName() + " as e",clazz).getResultList();
 	}
 
-	public T save(T entity) {
-		EntityTransaction t = entityManager.getTransaction();
+	public void save(T entity) {
+		EntityTransaction t = this.entityManager.getTransaction();
 		t.begin();
-		entityManager.merge(entity);;
+		entityManager.persist(entity);
 		t.commit();
-		return entity;
 	}
 
 	public T update(final T entity) {
@@ -44,6 +40,7 @@ public abstract class AbstractJpaDao<K extends Serializable, T> implements IGene
 		T res = entityManager.merge(entity);
 		t.commit();
 		return res;
+
 	}
 
 	public void delete(T entity) {

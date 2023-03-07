@@ -9,9 +9,15 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String label;
     @ManyToMany(mappedBy = "tags")
     private List<Ticket> tickets;
+
+    public Tag(String label) {
+        this.label = label;
+    }
+    public Tag() {
+    }
 
     // getters and setters
     public Long getId() {
@@ -22,12 +28,12 @@ public class Tag {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public List<Ticket> getTickets() {
@@ -42,7 +48,7 @@ public class Tag {
     public String toString() {
         return "Tag{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", label='" + label + '\'' +
                 '}';
     }
 }

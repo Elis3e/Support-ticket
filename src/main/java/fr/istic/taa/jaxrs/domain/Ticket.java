@@ -1,5 +1,7 @@
 package fr.istic.taa.jaxrs.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -21,10 +23,26 @@ public class Ticket {
     private User assigned;
     @ManyToOne
     private User creator;
+    @JsonIgnore
     @OneToMany(mappedBy = "ticket")
     private List<Comment> comments;
+    @JsonIgnore
     @ManyToMany
     private List<Tag> tags;
+
+    public Ticket(String title, String body, String status, User assigned, User creator, List<Comment> comments, List<Tag> tags) {
+        this.title = title;
+        this.body = body;
+        this.status = status;
+        this.created = new Date();
+        this.updated = new Date();
+        this.assigned = assigned;
+        this.creator = creator;
+        this.comments = comments;
+        this.tags = tags;
+    }
+    public Ticket() {
+    }
 
     // getters and setters
     public Long getId() {

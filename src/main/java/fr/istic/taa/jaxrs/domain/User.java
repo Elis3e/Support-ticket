@@ -1,7 +1,6 @@
 package fr.istic.taa.jaxrs.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +12,7 @@ public class User {
     private Long id;
     private String name;
     private String email;
+
     @JsonIgnore
     @OneToMany(mappedBy = "assigned")
     private List<Ticket> assignedTickets;
@@ -22,6 +22,13 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Comment> comments;
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+    public User() {
+    }
 
     // getters and setters
     public Long getId() {
@@ -70,14 +77,5 @@ public class User {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
