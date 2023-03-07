@@ -24,7 +24,7 @@ The Tag class represents a category or tag that can be assigned to a ticket. Tag
 
 ## Setup
 1. Import this project in your IDE, 
-2. Start the database (The project includes a configuration for MySQL, but you can use a different database by updating the persistence.xml file)
+2. Start the database (The project includes a configuration for MySQL, but you can use a different database by updating the persistence.xml file and the persistence unit name in the class EntityManangerHelper)
 3. Start the database viewer 
 4. Start the backend. There is a main class (RestServer) to start the backend 
 
