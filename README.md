@@ -2,9 +2,9 @@
 
 This project is a ticket manager (backend part), similar to GitHub tickets, designed in one of the technologies covered in class. It is a computer software that allows managing requests and issues of users in a system or application.
 
-This ticket manager will enable users to create tickets to report problems, errors, or improvements to an application or system. The tickets will be sorted and processed by system administrators who can filter, sort, and assign them to team members for resolution.
+The ticket manager will enable users to create tickets to report problems, errors, or improvements to an application or system. The tickets will be sorted and processed by system administrators who can filter, sort, and assign them to team members for resolution.
 
-The Git project will be developed using technologies learned in class such as Hibernate, Jpa, JaxRS, OpenAPI, Swagger.
+The project will be developed using technologies learned in class such as Hibernate, Jpa, JaxRS, OpenAPI, Swagger.
 
 
 ## Class Model
