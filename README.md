@@ -2,9 +2,9 @@
 
 This project is a ticket manager (backend part), similar to GitHub tickets, designed in one of the technologies covered in class. It is a computer software that allows managing requests and issues of users in a system or application.
 
-This ticket manager will enable users to create tickets to report problems, errors, or improvements to an application or system. The tickets will be sorted and processed by system administrators who can filter, sort, and assign them to team members for resolution.
+The ticket manager will enable users to create tickets to report problems, errors, or improvements to an application or system. The tickets will be sorted and processed by system administrators who can filter, sort, and assign them to team members for resolution.
 
-The Git project will be developed using technologies learned in class such as Hibernate, Jpa, JaxRS, OpenAPI, Swagger.
+The project will be developed using technologies learned in class such as Hibernate, Jpa, JaxRS, OpenAPI, Swagger.
 
 
 ## Class Model
@@ -24,7 +24,7 @@ The Tag class represents a category or tag that can be assigned to a ticket. Tag
 
 ## Setup
 1. Import this project in your IDE, 
-2. Start the database (The project includes a configuration for MySQL, but you can use a different database by updating the persistence.xml file)
+2. Start the database*
 3. Start the database viewer 
 4. Start the backend. There is a main class (RestServer) to start the backend 
 
@@ -32,3 +32,4 @@ The project can be tested with Swagger at the address http://localhost:8080/api/
 
 The JPA part of the project can be tested with the main class (JpaTest). This class fills the database with some examples, allowing you to test the functionality of the JPA component of the application.
 
+*The project includes a configuration for MySQL, but you can use a different database by updating the persistence.xml file and the persistence unit name in the class EntityManangerHelper
