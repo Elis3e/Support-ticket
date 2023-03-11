@@ -1,6 +1,7 @@
 package fr.istic.taa.jaxrs.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class User {
         this.name = name;
         this.email = email;
     }
+
     public User() {
     }
 

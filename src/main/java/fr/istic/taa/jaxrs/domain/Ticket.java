@@ -3,6 +3,7 @@ package fr.istic.taa.jaxrs.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,17 +31,17 @@ public class Ticket {
     @ManyToMany
     private List<Tag> tags;
 
-    public Ticket(String title, String body, String status, User assigned, User creator, List<Comment> comments, List<Tag> tags) {
+    public Ticket(String title, String body, User assigned, User creator, List<Tag> tags) {
         this.title = title;
         this.body = body;
-        this.status = status;
+        this.status = "open";
         this.created = new Date();
         this.updated = new Date();
-        this.assigned = assigned;
+        this.comments = new ArrayList<>();
         this.creator = creator;
-        this.comments = comments;
         this.tags = tags;
     }
+
     public Ticket() {
     }
 

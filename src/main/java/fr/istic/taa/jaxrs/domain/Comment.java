@@ -23,6 +23,7 @@ public class Comment {
         this.user = user;
         this.ticket = ticket;
     }
+
     public Comment() {
     }
 
