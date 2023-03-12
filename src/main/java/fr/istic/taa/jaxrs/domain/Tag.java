@@ -1,5 +1,7 @@
 package fr.istic.taa.jaxrs.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String label;
+    @JsonIgnore
     @ManyToMany(mappedBy = "tags")
     private List<Ticket> tickets;
 
