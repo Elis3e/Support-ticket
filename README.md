@@ -1,6 +1,6 @@
 ## Ticket Manager
 
-This project is a ticket manager, similar to GitHub tickets, designed technologies covered in class. It is a computer software that allows managing requests and issues of users in a system or application.
+This project is a ticket manager, similar to GitHub tickets, designed in technologies covered in class. It is a computer software that allows managing requests and issues of users in a system or application.
 
 The application will enable users to create tickets to report problems, errors, or improvements to an application or system. The tickets will be sorted and processed by system administrators who can filter, sort, and assign them to team members for resolution.
 
