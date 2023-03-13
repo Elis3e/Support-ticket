@@ -8,7 +8,7 @@ public interface IGenericDao<K, T> {
 
     List<T> findAll();
 
-    void save(final T entity);
+    T save(final T entity);
 
     T update(final T entity);
 
