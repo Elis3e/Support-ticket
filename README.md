@@ -8,7 +8,7 @@ The project will be developed using technologies learned in class such as Hibern
 
 ## Class Model
 
-![Tickets manager.png](src%2Fmain%2Fresources%2FTickets%20manager.png)
+![tickets_manager-class_model.png](src%2Fmain%2Fresources%2Ftickets_manager-class_model.png)
 
 ### Explanation of the class model
 
