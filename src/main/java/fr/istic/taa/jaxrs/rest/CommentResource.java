@@ -8,8 +8,12 @@ import fr.istic.taa.jaxrs.domain.Ticket;
 import fr.istic.taa.jaxrs.domain.User;
 import fr.istic.taa.jaxrs.dto.CommentDto;
 import fr.istic.taa.jaxrs.dto.UserDto;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.headers.Header;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
@@ -31,30 +35,34 @@ public class CommentResource {
     }
 
     @GET
-    @Path("/all")
-    @Produces("application/json")
-    public List<Comment> getAllComments() {
-        return this.daocomment.findAll();
+    @Path("/all/{ticketID}")
+    @Operation(summary = "Get all comments by ticket", description = "Returns a list of all the comments based on the given ticket")
+    @ApiResponse(responseCode = "200", description = "Users found 🟩", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Comment.class, type = "array")))
+    public List<Comment> getAllCommentsByTicket(@PathParam("ticketID") Long ticketID) {
+        Ticket ticket = daoticket.findOne(ticketID);
+        return this.daocomment.findAllByTicket(ticket);
     }
 
     @POST
     @Consumes("application/json")
-    @Produces("application/json")
     @Path("/add")
-    public String addComment(@Parameter(description = "Comment that needs to be added to a ticket") CommentDto com) {
+    @Operation(summary = "Add a new user comment", description = "Adds a user comment to a ticket in the database")
+    @ApiResponse(responseCode = "200", description = "Comment added 🟩", content = @Content(mediaType = "application/json"))
+    public Comment addComment(@Parameter(description = "Comment that needs to be added to a ticket") CommentDto com) {
         User user = daouser.findOne(com.getUserId());
         Ticket ticket = daoticket.findOne(com.getTicketId());
-        Comment c = new Comment(com.getText(), user, ticket);
-        daocomment.save(c);
-        return "comment " + c.getText() + " added ✅";
+        String text = com.getText();
+        Comment c = new Comment(text, user, ticket);
+        return daocomment.save(c);
     }
 
     @DELETE
     @Consumes("application/json")
-    @Produces("text/html")
-    @Path("/delete/{commentId}")
-    public String deleteCommentById(@PathParam("commentId") Long id) {
-        daocomment.deleteById(id);
-        return "comment " + id + " deleted ❎";
+    @Path("/delete/{commentID}")
+    @Operation(summary = "Delete user comment by ID", description = "Deletes a user comment based on the given ID")
+    @ApiResponse(responseCode = "200", description = "comment deleted 🟩")
+    @ApiResponse(responseCode = "404", description = "comment not found 🟥")
+    public void deleteCommentById(@PathParam("commentID") Long commentID) {
+        daocomment.deleteById(commentID);
     }
 }

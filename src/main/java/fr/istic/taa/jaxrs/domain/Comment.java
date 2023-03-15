@@ -6,6 +6,9 @@ import java.util.Date;
 @Entity
 public class Comment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String text;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -13,9 +16,6 @@ public class Comment {
     private User user;
     @ManyToOne
     private Ticket ticket;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     public Comment(String text, User user, Ticket ticket) {
         this.text = text;
