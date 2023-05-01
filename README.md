@@ -24,7 +24,7 @@ The **Tag** class represents a category or tag that can be assigned to a ticket.
 ## Setup
 1. Install and start XAMPP or any other local database manager.
 2. Start the MySQL service in the Control Panel.
-3. Open phpMyAdmin in your web browser and create a new database named "ticketsmanager".
+3. Open phpMyAdmin in your web browser and create a new database named "ticket".
 4. Start the backend by running the main class (RestServer) in your IDE.
 5. Test the project with Swagger by accessing http://localhost:8080/api/ in your web browser. This will open the Swagger UI interface, where you can test the API endpoints of the application.
 6. Test the JPA component of the project by running the main class (JpaTest) in your IDE. This will fill the database with some examples and allow you to test the functionality of the JPA component.

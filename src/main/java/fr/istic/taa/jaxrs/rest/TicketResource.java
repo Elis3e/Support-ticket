@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Path("/ticket")
-@io.swagger.v3.oas.annotations.tags.Tag(name = "Ticket Resource", description = "API to manage tickets")
+    @io.swagger.v3.oas.annotations.tags.Tag(name = "Ticket Resource", description = "API to manage tickets")
 public class TicketResource {
 
     private static final Logger logger = Logger.getLogger(UserResource.class.getName());
@@ -36,6 +36,14 @@ public class TicketResource {
         this.daotag = new TagDao();
     }
 
+    @GET
+    @Path("/{ticketID}")
+    @Operation(summary = "Find ticket by ID", description = "Returns a ticket based on the given ID")
+    @ApiResponse(responseCode = "200", description = "Tag found 🟩", content = @Content(mediaType = "application/json"))
+    @ApiResponse(responseCode = "404", description = "Tag not found 🟥")
+    public Ticket findTagById(@PathParam("ticketID") Long ticketID) {
+        return daoticket.findOne(ticketID);
+    }
 
     @GET
     @Path("/all")
@@ -56,11 +64,7 @@ public class TicketResource {
         String body = ticket.getBody();
         User user = daouser.findOne(ticket.getCreatorId());
 
-        List<Tag> tags = new ArrayList<>();
-        for (Long tagId : ticket.getTagsId()) {
-            Tag tag = daotag.findOne(tagId);
-            tags.add(tag);
-        }
+        List<Tag> tags = ticket.getTags();
 
         Ticket t = new Ticket(ticket.getTitle(), ticket.getBody(), null, user, tags);
         return daoticket.save(t);

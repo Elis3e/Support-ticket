@@ -10,14 +10,14 @@ public class TicketDto {
     private String title;
     private String body;
     private long creatorId;
-    private List<Long> tagsId;
+    private List<Tag> tags;
 
 
-    public TicketDto(String title, String body, long creatorId, List<Long> tagsId) {
+    public TicketDto(String title, String body, long creatorId, List<Tag> tags) {
         this.title = title;
         this.body = body;
         this.creatorId = creatorId;
-        this.tagsId = tagsId;
+        this.tags = tags;
     }
 
     public TicketDto() {
@@ -47,11 +47,11 @@ public class TicketDto {
         this.creatorId = creatorId;
     }
 
-    public List<Long> getTagsId() {
-        return tagsId;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setTagsId(List<Long> tagsId) {
-        this.tagsId = tagsId;
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 }

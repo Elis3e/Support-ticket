@@ -27,6 +27,14 @@ import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 public class TestApplication extends Application {
 
     @Override
+    public Set<Object> getSingletons() {
+        final Set<Object> singletons = new HashSet<>();
+        singletons.add(this);
+        singletons.add(new CorsFilter());
+        return singletons;
+    }
+
+    @Override
     public Set<Class<?>> getClasses() {
 
         final Set<Class<?>> clazzes = new HashSet<>();

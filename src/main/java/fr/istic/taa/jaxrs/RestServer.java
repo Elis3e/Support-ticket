@@ -26,6 +26,6 @@ public class RestServer {
 
         );
 
-        logger.info("JAX-RS based micro-service running!");
+        logger.info("JAX-RS based micro-service running! http://localhost:8080/api/");
     }
 }

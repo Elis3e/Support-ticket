@@ -26,7 +26,7 @@ public class TagResource {
     @GET
     @Path("/all")
     @Operation(summary = "Get all tags", description = "Returns a list of all the tags")
-    @ApiResponse(responseCode = "200", description = "Tags found 🟩", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Tag.class, type = "array")))
+    @ApiResponse(responseCode = "200", description = "Tags found 🟩", content = @Content(mediaType = "application/json"))
     public List<Tag> getAllTags() {
         return this.daotag.findAll();
     }
@@ -35,7 +35,7 @@ public class TagResource {
     @Consumes("application/json")
     @Path("/add")
     @Operation(summary = "Add a new tag", description = "Adds a new tag to the database")
-    @ApiResponse(responseCode = "200", description = "Tag added 🟩", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Tag.class)))
+    @ApiResponse(responseCode = "200", description = "Tag added 🟩", content = @Content(mediaType = "application/json"))
     public Tag addTag(TagDto tag) {
         Tag t = new Tag(tag.getLabel());
         return daotag.save(t);
