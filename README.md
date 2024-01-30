@@ -10,7 +10,6 @@ The project will be developed using technologies learned in class such as Hibern
 
 ![tickets_manager-class_model.png](src%2Fmain%2Fresources%2Ftickets_manager-class_model.png)
 
-### Explanation of the class model
 
 The **Ticket** class represents a ticket that can be submitted by a user through a web interface. The ticket contains information such as the title, description, status, creation date, update date, assigned user, creator user, and associated comments.
 
