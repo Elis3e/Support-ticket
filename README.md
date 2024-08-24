@@ -1,10 +1,8 @@
-## Ticket Manager
+## Support-ticket
 
-This project is a ticket manager, similar to GitHub tickets, designed in technologies covered in class. It is a software that allows managing requests and issues of users in a system or application.
+This project is a (support) ticket manager, similar to GitHub tickets. It is a software that allows managing requests and issues of users in a system or application.
 
 The application will enable users to create tickets to report problems, errors, or improvements. The tickets will be sorted and processed by system administrators who can filter, sort, and assign them to technical support team members.
-
-The project will be developed using technologies learned in class such as Hibernate, Jpa, JaxRS, OpenAPI, Swagger.
 
 ## Class Model
 
