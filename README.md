@@ -1,4 +1,4 @@
-## Support-ticket
+# Support-ticket
 
 This project is a (support) ticket manager, similar to GitHub tickets. It is a software that allows managing requests and issues of users in a system or application.
 
